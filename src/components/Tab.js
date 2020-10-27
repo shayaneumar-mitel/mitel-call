@@ -9,8 +9,11 @@ class Tab extends React.Component {
         super(props)
         this.state = {
             accessToken: null,
-            messages: []
+            messages: [],
+            name: ''
         }
+
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentWillMount() {
@@ -29,12 +32,20 @@ class Tab extends React.Component {
         });
     }
 
+    handleChange(event) {
+        this.setState({ name: event.target.value });
+    }
+
     render() {
 
         return (
             <div>
-                <button onClick={this.getMessages.bind(this)}>Get Mail</button>
                 <p>Username: {TeamsAuthService.getUsername()}</p>
+                <label>
+                    Name:
+                        <input type="text" value={this.state.name} onChange={this.handleChange} />
+                </label>
+                <button onClick={this.getMessages.bind(this)}>Get Users</button>
                 <List selectable>
                     {
                         this.state.messages.map(message => (
@@ -44,7 +55,8 @@ class Tab extends React.Component {
                             </List.Item>
                         ))
                     }
-                </List>            </div>
+                </List>
+            </div>
         );
     }
 

@@ -46,12 +46,13 @@ class Web extends React.Component {
 
     return (
       <div>
-        <button onClick={this.getMessages.bind(this)}>Get Users</button>
+
         <p>Username: {AuthService.getUsername()}</p>
         <label>
           Name:
           <input type="text" value={this.state.name} onChange={this.handleChange} />
         </label>
+        <button onClick={this.getMessages.bind(this)}>Get Users</button>
         <List selectable>
           {
             this.state.messages.map(message => (
@@ -61,6 +62,7 @@ class Web extends React.Component {
               </List.Item>
             ))
           }
+
         </List>
       </div>
     );

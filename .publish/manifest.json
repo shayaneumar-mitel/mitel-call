@@ -19,14 +19,14 @@
         "full": "{fullappname}"
     },
     "description": {
-        "short": "Bare bones sample on tab auth with MSAL 2",
-        "full": "Bare bones sample on tab authentication to Azure AD with no server side logic using MSAL 2.0 / Auth Code PKCE flow"
+        "short": "Mitel Call",
+        "full": "Mitel Call"
     },
     "accentColor": "#FFFFFF",
     "staticTabs": [
         {
             "entityId": "index",
-            "name": "AAD MSAL Tab Sample",
+            "name": "Mitel Call",
             "contentUrl": "{baseUrl0}/#tab",
             "websiteUrl": "{baseUrl0}/#web",
             "scopes": [
