@@ -1,0 +1,42 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.7",
+    "version": "{version}",
+    "id": "a71a47af-a768-44e0-b93d-d6562fc26c7e",
+    "packageName": "io.github.pnp.sample.tab-aad-msal2",
+    "developer": {
+        "name": "Shayane Umar",
+        "websiteUrl": "{baseUrl0}",
+        "privacyUrl": "{baseUrl0}/privacy",
+        "termsOfUseUrl": "{baseUrl0}/termsofuse"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "{appname}",
+        "full": "{fullappname}"
+    },
+    "description": {
+        "short": "Bare bones sample on tab auth with MSAL 2",
+        "full": "Bare bones sample on tab authentication to Azure AD with no server side logic using MSAL 2.0 / Auth Code PKCE flow"
+    },
+    "accentColor": "#FFFFFF",
+    "staticTabs": [
+        {
+            "entityId": "index",
+            "name": "AAD MSAL Tab Sample",
+            "contentUrl": "{baseUrl0}/#tab",
+            "websiteUrl": "{baseUrl0}/#web",
+            "scopes": [
+                "personal"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": []
+}
