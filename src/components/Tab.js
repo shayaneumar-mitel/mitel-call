@@ -49,9 +49,9 @@ class Tab extends React.Component {
                 <List selectable>
                     {
                         this.state.messages.map(message => (
-                            <List.Item media={<Icon name="email"></Icon>}
+                            <List.Item
                                 header={message.displayName}
-                                content={message.mail}>
+                                content={message.businessPhones[0]}>
                             </List.Item>
                         ))
                     }
@@ -64,7 +64,7 @@ class Tab extends React.Component {
 
         this.msGraphClient
             .api("users")
-            .select(["displayName", "mail"])
+            .filter(`startswith(displayName,'${this.state.name}')`)
             .top(15)
             .get(async (error, rawMessages, rawResponse) => {
                 if (!error) {
