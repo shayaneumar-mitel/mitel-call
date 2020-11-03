@@ -53,17 +53,11 @@ class Web extends React.Component {
           <input type="text" value={this.state.name} onChange={this.handleChange} />
         </label>
         <button onClick={this.getMessages.bind(this)}>Get Users</button>
-        <List selectable>
-          {
-            this.state.messages.map(message => (
-              <List.Item
-                header={message.displayName}
-                content={message.businessPhones[0]}>
-              </List.Item>
-            ))
-          }
-
-        </List>
+        <ul>
+          {this.state.messages.map(message => (
+            <li key={message.id}> {message.displayName}: {message.businessPhones[0]}</li>
+          ))}
+        </ul>
       </div>
     );
   }
