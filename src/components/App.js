@@ -14,6 +14,7 @@ import Tab from "./Tab";
 import TeamsAuthPopup from './TeamsAuthPopup';
 import Web from './Web';
 import MitelDialer from './MitelDialer';
+import { Link } from "react-router-dom";
 
 class App extends React.Component {
 
@@ -21,7 +22,7 @@ class App extends React.Component {
     super();
     this.state = {
       authInitialized: false
-    }
+    };
   }
 
   componentDidMount() {
@@ -31,7 +32,7 @@ class App extends React.Component {
       this.setState({
         authInitialized: true
       });
-    })
+    });
   }
 
   render() {
@@ -51,7 +52,14 @@ class App extends React.Component {
         if (window.parent === window.self) {
           return (
             <div className="App">
+
               <Router>
+                <div>
+                  <Link to="/dialer">Dialer</Link>
+                </div>
+                <div>
+                  <Link to="/tab">Users</Link>
+                </div>
                 <Route exact path="/privacy" component={Privacy} />
                 <Route exact path="/termsofuse" component={TermsOfUse} />
                 <Route exact path="/tab" component={Web} />
@@ -68,10 +76,18 @@ class App extends React.Component {
 
         // Display the app home page hosted in Teams
         return (
-          <Router>
-            <Route exact path="/tab" component={Tab} />
-            <Route exact path="/dialer" component={MitelDialer} />
-          </Router>
+          <div className="App">
+            <Router>
+              <div>
+                <Link to="/dialer">Dialer</Link>
+              </div>
+              <div>
+                <Link to="/tab">Users</Link>
+              </div>
+              <Route exact path="/tab" component={Tab} />
+              <Route exact path="/dialer" component={MitelDialer} />
+            </Router>
+          </div>
         );
       }
     }
