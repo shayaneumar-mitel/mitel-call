@@ -4,6 +4,7 @@ import TeamsAuthService from '../services/TeamsAuthService';
 import { List, Icon } from "@fluentui/react";
 import * as MicrosoftGraphClient from "@microsoft/microsoft-graph-client";
 
+
 class Tab extends React.Component {
     constructor(props) {
         super(props)
@@ -36,6 +37,11 @@ class Tab extends React.Component {
         this.setState({ name: event.target.value });
     }
 
+    callhandler(event, number) {
+        console.log(number);
+        window.location = 'tel://' + number;
+    }
+
     render() {
 
         return (
@@ -48,7 +54,7 @@ class Tab extends React.Component {
                 <button onClick={this.getMessages.bind(this)}>Get Users</button>
                 <ul>
                     {this.state.messages.map(message => (
-                        <li key={message.id}> {message.displayName}: {message.businessPhones[0]}</li>
+                        <li key={message.id} onClick={event => this.callhandler(event, message.businessPhones[0])}> {message.displayName}: {message.businessPhones[0]}</li>
                     ))}
                 </ul>
             </div>

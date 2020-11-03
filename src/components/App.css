@@ -18,3 +18,8 @@ h2 {
 .Error {
   color: red;
 }
+
+li{
+  cursor: pointer;
+  margin: 15px 0;
+}

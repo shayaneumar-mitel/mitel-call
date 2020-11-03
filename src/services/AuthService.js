@@ -101,7 +101,7 @@ class AuthService {
                 return {
                     username: this.getUsername(),
                     accessToken: resp.accessToken,
-                    expiresOn: (new Date(resp.expiresOn)).getTime() 
+                    expiresOn: (new Date(resp.expiresOn)).getTime()
                 }
             } else {
                 return null;
