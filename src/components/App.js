@@ -13,6 +13,7 @@ import TermsOfUse from "./TermsOfUse";
 import Tab from "./Tab";
 import TeamsAuthPopup from './TeamsAuthPopup';
 import Web from './Web';
+import MitelDialer from './MitelDialer';
 
 class App extends React.Component {
 
@@ -56,6 +57,7 @@ class App extends React.Component {
                 <Route exact path="/tab" component={Web} />
                 <Route exact path="/web" component={Web} />
                 <Route exact path="/teamsauthpopup" component={TeamsAuthPopup} />
+                <Route exact path="/dialer" component={MitelDialer} />
               </Router>
             </div>
           );
@@ -68,6 +70,7 @@ class App extends React.Component {
         return (
           <Router>
             <Route exact path="/tab" component={Tab} />
+            <Route exact path="/dialer" component={MitelDialer} />
           </Router>
         );
       }
