@@ -22,7 +22,8 @@ class Tab extends React.Component {
             authProvider: async (done) => {
                 if (!this.state.accessToken) {
                     const token = await TeamsAuthService
-                        .getAccessToken(["User.Read", "User.ReadBasic.All"],
+                        .getAccessToken(["User.Read", "User.ReadBasic.All",
+                            "Directory.Read.All"],
                             microsoftTeams);
                     this.setState({
                         accessToken: token
@@ -66,7 +67,6 @@ class Tab extends React.Component {
         this.msGraphClient
             .api("users")
             .filter(`startswith(displayName,'${this.state.name}')`)
-            .top(15)
             .get(async (error, rawMessages, rawResponse) => {
                 if (!error) {
                     this.setState(Object.assign({}, this.state, {

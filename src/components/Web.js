@@ -28,7 +28,8 @@ class Web extends React.Component {
         authProvider: async (done) => {
           if (!this.state.accessToken) {
             // Might redirect the browser and not return; will redirect back if successful
-            const token = await AuthService.getAccessToken(["User.Read", "User.ReadBasic.All"]);
+            const token = await AuthService.getAccessToken(["User.Read", "User.ReadBasic.All",
+              "Directory.Read.All"]);
             this.setState({
               accessToken: token
             });
@@ -74,7 +75,6 @@ class Web extends React.Component {
       .api("users")
       .filter(`startswith(displayName,'${this.state.name}')`)
       // .select(["displayName", "mail", "businessPhones"])
-      .top(5)
       .get(async (error, rawMessages, rawResponse) => {
         if (!error) {
           this.setState(Object.assign({}, this.state, {
