@@ -15,10 +15,10 @@ class TeamsAuthPopup extends React.Component {
           // If here we have a Teams context. Ensure we're logged in
           // and then request the access token.
           if (!AuthService.isLoggedIn()) {
-            AuthService.login(["User.Read", "User.ReadBasic.All"]);
+            AuthService.login(["User.Read", "User.ReadBasic.All", "Directory.Read.All"]);
             // This call won't return - catch it on the redirect
           } else {
-            AuthService.getAccessTokenEx(["User.Read", "User.ReadBasic.All"])
+            AuthService.getAccessTokenEx(["User.Read", "User.ReadBasic.All", "Directory.Read.All"])
               .then(({ username, accessToken, expiresOn }) => {
                 if (accessToken) {
                   const response = JSON.stringify({ username, accessToken, expiresOn })

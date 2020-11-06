@@ -22,8 +22,7 @@ class Tab extends React.Component {
             authProvider: async (done) => {
                 if (!this.state.accessToken) {
                     const token = await TeamsAuthService
-                        .getAccessToken(["User.Read", "User.ReadBasic.All",
-                            "Directory.Read.All"],
+                        .getAccessToken(["User.Read", "User.ReadBasic.All", "Directory.Read.All"],
                             microsoftTeams);
                     this.setState({
                         accessToken: token
