@@ -31,6 +31,7 @@ class Tab extends React.Component {
                 done(null, this.state.accessToken);
             }
         });
+
     }
 
     handleChange(event) {
@@ -39,7 +40,24 @@ class Tab extends React.Component {
 
     callhandler(event, number) {
         console.log(number);
-        window.location = 'tel://' + number;
+
+        microsoftTeams.getContext((context) => {
+            if (context) {
+                if (context.hostClientType === "web") {
+                    microsoftTeams.authentication.authenticate({
+                        url: window.location.origin + "#/lauchdialer?number=" + number,
+                        width: 600,
+                        height: 535,
+                        successCallback: () => {
+                        },
+                        failureCallback: () => {
+                        }
+                    });
+                } else {
+                    window.location = 'tel://' + number;
+                }
+            }
+        });
     }
 
     render() {

@@ -14,6 +14,7 @@ import Tab from "./Tab";
 import TeamsAuthPopup from './TeamsAuthPopup';
 import Web from './Web';
 import MitelDialer from './MitelDialer';
+import LaunchMitelDialer from './LaunchMitelDialer';
 import { Link } from "react-router-dom";
 
 class App extends React.Component {
@@ -66,6 +67,7 @@ class App extends React.Component {
                 <Route exact path="/web" component={Web} />
                 <Route exact path="/teamsauthpopup" component={TeamsAuthPopup} />
                 <Route exact path="/dialer" component={MitelDialer} />
+                <Route exact path="/lauchdialer" component={LaunchMitelDialer} />
               </Router>
             </div>
           );
@@ -86,6 +88,7 @@ class App extends React.Component {
               </div>
               <Route exact path="/tab" component={Tab} />
               <Route exact path="/dialer" component={MitelDialer} />
+              <Route exact path="/lauchdialer" component={LaunchMitelDialer} />
             </Router>
           </div>
         );
