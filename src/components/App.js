@@ -34,6 +34,7 @@ class App extends React.Component {
         authInitialized: true
       });
     });
+
   }
 
   render() {
@@ -50,6 +51,8 @@ class App extends React.Component {
         // Set app routings that don't require microsoft Teams
         // SDK functionality.  Show an error if trying to access the
         // Home page.
+        microsoftTeams.initialize(window);
+
         if (window.parent === window.self) {
           return (
             <div className="App">
@@ -63,7 +66,7 @@ class App extends React.Component {
                 </div>
                 <Route exact path="/privacy" component={Privacy} />
                 <Route exact path="/termsofuse" component={TermsOfUse} />
-                <Route exact path="/tab" component={Web} />
+                <Route exact path="/tab" component={Tab} />
                 <Route exact path="/web" component={Web} />
                 <Route exact path="/teamsauthpopup" component={TeamsAuthPopup} />
                 <Route exact path="/dialer" component={MitelDialer} />

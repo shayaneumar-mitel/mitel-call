@@ -34,6 +34,28 @@ class TeamsAuthPopup extends React.Component {
           }
         }
       });
+
+      // if (!AuthService.isLoggedIn()) {
+      //   AuthService.login(["User.Read", "User.ReadBasic.All", "Directory.Read.All"]);
+      //   // This call won't return - catch it on the redirect
+      // } else {
+
+      //   AuthService.getAccessTokenEx(["User.Read", "User.ReadBasic.All", "Directory.Read.All"])
+      //     .then(({ username, accessToken, expiresOn }) => {
+      //       if (accessToken) {
+      //         const response = JSON.stringify({ username, accessToken, expiresOn });
+      //         alert('success');
+      //         microsoftTeams.authentication.notifySuccess(response);
+      //       } else {
+      //         microsoftTeams.authentication.notifyFailure("Unexpected failure - null token received");
+      //         alert('failure');
+      //       }
+      //     })
+      //     .catch((error) => {
+      //       console.log(error);
+      //       microsoftTeams.microsoftTeams.notifyFailure(error);
+      //     });
+      // }
     }
   }
 
